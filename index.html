@@ -12,46 +12,59 @@
 <body>
 <!--header-->
 <header>
-    <a id="scoreboard">View Highscores</a>
-    <h3>Javascript Quiz</h3>
-    <time> Timer: <span id="timer"></span></time>
-</header>
+        <a id="scoreboard-link">View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
+        </i></a> 
+        
+        <time>Time: <span id="time"></span></time>
+    </header>
 
-<main>
-<!--Landing Card-->
-    <div id="start-card" class="card">
-        <h2>Welcome, Challenger</h2>
-        <p>Answer the questions as quickly as possible within the time frame. Incorrect answers will incur a penalty</p>
-    
-    </div>
-<!--Quiz section-->
+    <main>
+        <div id="start-card" class="card">
+            <h2 id="title">Coding Quiz Challenge</h2>
+            <p>Try to answer to following code-related questions within the time limit. <br><br> Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <button id="start-button" class="button">Start Quiz</button>
+        </div>
 
-    <h2 id="question"></h2>
+        <div hidden id="question-card" class="card">
 
-    <div id="options">
-        <button id="option0"></button>
-        <button id="option1"></button>
-        <button id="option2"></button>
-        <button id="option3"></button>
-    </div>
-<!--results-->
-    <div id=""></div>
+            <h2 id="question-text"></h2>
 
-</div>
-<!--Final score section-->
-    <div id="final-score">
-        <h2>CLEARED!</h2>
-        <p>Final Score: <span id="score"></span> </p>
-        <label 
-    </div>
-</main>
+            <div id="quiz-options">
+                <button id="option0" class="button option-button">1</button>
+                <button id="option1" class="button option-button">2</button>
+                <button id="option2" class="button option-button">3</button>
+                <button id="option3" class="button option-button">4</button>
+            </div>
+
+            <div id="result-div">
+                <hr>
+                <p id="result-text"></p>
+            </div>
+
+        </div>
+
+        <div hidden id="score-card" class="card">
+            <h2>All done!</h2>
+            <p>Your final score is <span id="score"></span>.</p>
+            <form class="inline-form" id="submission-form">
+                  <label for="initials">Enter initials: </label>
+                  <input type="text" id="initials">
+                  <button id="submit-button" class="button">Submit</button>
+            </form>
+        </div>
+
+        <div hidden id="scoreboard-card" class="card">
+            <h2>Highscores</h2>
+            <ol id="highscores">
+            </ol>
+            <div class="inline-buttons">
+                <button id="back-button" class="button">Go Back</button>
+                <button id="clear-button" class="button">Clear</button>
+            </div>
+        </div>
+    </main>
 
 
-    <footer>
-
-        <h3>Made by welding silverware to imprison a Sega Dreamcast. 
-        </h3>
-    </footer>
 <script src="./asset/script.js"></script> 
 </body>
 

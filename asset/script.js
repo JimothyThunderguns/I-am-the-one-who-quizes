@@ -1,7 +1,7 @@
 //QUESTIONS
 const questions = [ 
     {
-        question: "Question 1: Arrays in Javascript can be used to store _______",
+        questionText: "Question 1: Arrays in Javascript can be used to store _______",
         options:  [
         "1: Numbers and Strings",
         "2: Other Arrays",
@@ -12,7 +12,7 @@ const questions = [
 }, 
 
 {
-    question: "Question 2: String Values must be enclosed in ___ when being assigned to variables",
+    questionText: "Question 2: String Values must be enclosed in ___ when being assigned to variables",
     options:  [
         "1: Quotes",
         "2: Curly Brackets",
@@ -24,7 +24,7 @@ const questions = [
 
     
 {
-    question: "Question 3: What useful tool is used for development/debugging by printing it?",
+    questionText: "Question 3: What useful tool is used for development/debugging by printing it?",
     options:  [
         "1: Your terminal ",
         "2: console.log",
@@ -36,7 +36,7 @@ const questions = [
 
 
 {
-    question: "Question 4: Common data types DO NOT include",
+    questionText: "Question 4: Common data types DO NOT include",
     options:  [
         "1: Strings",
         "2: Numbers",
@@ -48,7 +48,7 @@ const questions = [
 
 
 {
-    question: "Question 5: Which statement can be used to terminate a loop, switch or label?",
+    questionText: "Question 5: Which statement can be used to terminate a loop, switch or label?",
     options:  [
         "1: exit",
         "2: end",
@@ -59,7 +59,7 @@ const questions = [
 }, 
 
 {
-    question: "Question 6: What statement is for executing code that is true?",
+    questionText: "Question 6: What statement is for executing code that is true?",
     options:  [
         "1: if/else",
         "2: for loop",
@@ -126,13 +126,13 @@ function startQuiz() {
 //countdown function
 function countdown() {
   time--;
-  diplayTime();
+  displayTime();
   if (time < 1) {
     endQuiz();
   }
 }
 //display the time onsite
-const timeDisplay = documen.querySelector("#time");
+const timeDisplay = document.querySelector("#time");
   function displayTime() {
     timeDisplay.textContent = time;
   }
@@ -144,19 +144,23 @@ let options = question.options;
 
 let questionElement = document.querySelector("#question-text");
 
-questionElement = question.questionText;
-//displays the options for each question
+questionElement.textContent = question.questionText;
+
+//renders the options for each question
 for (let i = 0; i < options.length; i++) {
   let option = options[i];
   let optionButton = document.querySelector("#option" + i);
-  }
+  optionButton.textContent = option;
 }
+}
+
+
 //event listener for the options that shows if it's correct or not
-document.querySelector ("quiz-options").addEventListener("click", checkAnswer);
+document.querySelector ("#quiz-options").addEventListener("click", checkAnswer);
 
 //checks  if the option is 
 function correctOption(optionButton) {
-  return option.textContent === questions[currentQuestion].answer;
+  return optionButton.textContent === questions[currentQuestion].answer;
 }
 
 //penalty for incorrect answers
@@ -165,19 +169,20 @@ function checkAnswer(eventObject) {
   let optionButton = eventObject.target;
   resultDiv.style.display = "block";
   if (correctOption(optionButton)) {
-    resultText.textContent = "Correct";
-    setTimeout(hideResultText, 1000);
+    resultText.textContent = "Correct!";
+    setTimeout(hideResults, 1000);
   } else {
-    resultText.textContent = "Incorrect";
-    setTimeout(hideResultText, 1000)
+    resultText.textContent = "Incorrect!";
+    setTimeout(hideResults, 1000);
     if (time >= 10) {
       time = time - 10;
-      displayTime;
+      displayTime();
     } else {
-      //end the quiz if they are at 0
+      //if time is less than 10, display time as 0 and end quiz
+      //time is set to zero in this case to avoid displaying a negative number in cases where a wrong answer is submitted with < 10 seconds left on the timer
       time = 0;
-      displayTime;
-      endQuiz;
+      displayTime();
+      endQuiz();
     }
   }
   
@@ -187,7 +192,7 @@ function checkAnswer(eventObject) {
   if (currentQuestion < questions.length) {
     displayQuestion();
   } else {
-    endQuiz;
+    endQuiz();
   }
 }
 
@@ -196,10 +201,10 @@ const score = document.querySelector("#score");
 
 //hiding the other cards and displaying your score when the quiz is done
 function endQuiz() {
-    clearInterval(intervalID);
-    hideCards();
-    scoreCard.removeAttribute("hidden");
-    score.textContent = time;
+  clearInterval(intervalID);
+  hideCards();
+  scoreCard.removeAttribute("hidden");
+  score.textContent = time;
 }
 
 //initials and submit button constants
@@ -250,7 +255,7 @@ function getScoreboard() {
     scoreboardArray = [];
   }
 
-  return scoreboardArray
+  return scoreboardArray;
 }
 
 //display scoreboard on its card
@@ -291,7 +296,7 @@ function clearScoreboard() {
 }
 
 //back button
-const backButton = document.querySelector("back-button");
+const backButton = document.querySelector("#back-button");
 backButton.addEventListener("click", returnHome);
 
 //hides the scoreboard and takes you home
@@ -311,7 +316,7 @@ function showScoreboard() {
     clearInterval(intervalID);
 
     time = undefined;
-    displayTime;
+    displayTime();
 
-    renderScoreboard;
+    renderScoreboard();
 }
