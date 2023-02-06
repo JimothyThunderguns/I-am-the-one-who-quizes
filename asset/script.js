@@ -252,10 +252,10 @@ function getScoreboard() {
     let scoreboardArray = JSON.parse(storedScoreboard);
     return scoreboardArray
   } else {
-    scoreboardArray = [];
+    scoreboardCard = [];
   }
 
-  return scoreboardArray;
+  return scoreboardCard;
 }
 
 //display scoreboard on its card
@@ -312,7 +312,7 @@ scoreboardLink.addEventListener("click", showScoreboard);
 function showScoreboard() {
     hideCards();
     scoreboardCard.removeAttribute("hidden");
-
+//stops the countdown
     clearInterval(intervalID);
 
     time = undefined;
