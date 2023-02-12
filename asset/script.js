@@ -252,10 +252,10 @@ function getScoreboard() {
     let scoreboardArray = JSON.parse(storedScoreboard);
     return scoreboardArray
   } else {
-    scoreboardCard = [];
+    scoreboardArray = [];
   }
 
-  return scoreboardCard;
+  return scoreboardArray;
 }
 
 //display scoreboard on its card
