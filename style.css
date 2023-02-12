@@ -37,15 +37,6 @@ h1 {
     margin-bottom: 5rem;
 }
 
-
-h2 { 
-    font-size: ;
-    margin-bottom: ;
-}
-
-h3 {
-    font-size: ''
-}
 /*container css*/
 
 
@@ -63,7 +54,7 @@ li {
     padding: 5vw;
     border-radius: 30px;
     border-color: #1E2019;
-    box-shadow: 10px 5px 5px lightgray;
+    box-shadow: 10px 5px 5px gray;
     align-items: center;
   }
 /*
