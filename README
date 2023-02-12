@@ -7,4 +7,13 @@ This is an interactive javascript quiz that uses local storage to store the code
 
 ## Screenshots
 
-![]
+![welcome](/asset/image/welcome.png)
+![quiz page](/asset/image/quiz.png)
+![score page](/asset/image/score.png)
+
+## link to the repository and deployment
+Repo:
+https://github.com/JimothyThunderguns/I-am-the-one-who-quizes
+
+Deployment:
+https://jimothythunderguns.github.io/I-am-the-one-who-quizes/
